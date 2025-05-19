@@ -5,7 +5,6 @@ resources:
 - ingress.yaml
 components:
 - ../../components/network-policies
-# Uncomment d'autres composants selon vos besoins:
 # - ../../components/cymbal-branding
 # - ../../components/service-mesh-istio
 # - ../../components/without-loadgenerator
