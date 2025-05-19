@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+- ../../base
+- ingress.yaml
+components:
+- ../../components/network-policies
+# Uncomment d'autres composants selon vos besoins:
+# - ../../components/cymbal-branding
+# - ../../components/service-mesh-istio
+# - ../../components/without-loadgenerator
+
+patches:
+- path: patches/frontend-service.yaml
