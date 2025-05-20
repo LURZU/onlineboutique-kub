@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: online-boutique
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/YOUR_USERNAME/online-boutique-gitops.git  # Remplacez par l'URL de votre dépôt
+    targetRevision: HEAD
+    path: manifests/online-boutique/overlays/dev  # Utilisez overlays/prod pour l'environnement de production
+  destination:
+    server: https://kubernetes.default.svc  # Pour déployer sur le même cluster qu'ArgoCD
+    namespace: online-boutique
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
