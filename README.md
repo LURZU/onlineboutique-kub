@@ -39,3 +39,33 @@ kubectl get pods -w
 
 
 ![SCR-20250519-oknr.jpeg](docs/img/SCR-20250519-oknr.jpeg)
+
+
+
+# ARGOCD
+
+
+## Étape 1 : Installation d'ArgoCD
+
+```bash
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+```
+
+
+## Étape 2 : Exposition du service ArgoCD
+
+```bash
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+```
+![SCR-20250520-jhrw.png](docs/img/SCR-20250520-jhrw.png)
+
+
+## Étape 3 : Accès à l'interface web d'ArgoCD
+
+![SCR-20250520-jhwm.png](docs/img/SCR-20250520-jhwm.png)
+
+
+## Étape 4 : Création de l'application ArgoCD
+
+![SCR-20250520-jiey.png](docs/img/SCR-20250520-jiey.png)
